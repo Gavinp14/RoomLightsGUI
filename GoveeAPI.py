@@ -49,5 +49,23 @@ class GoveeAPI:
         }
         return requests.post(f"{self.baseURL}{endpoint}", headers=self.headers, json=data)
 
+    def changeColor(self, model, device, setting):
+        endpoint = "device/control"
+        data = {
+            "requestId": str(uuid.uuid4()),
+            "payload": {
+                "sku": model,
+                "device": device,
+                "capability": {
+                    "type": "devices.capabilities.color_setting",
+                    "instance": "colorRgb",
+                    "value": setting
+                }
+            }
+        }
+
+        return requests.post(f"{self.baseURL}{endpoint}", headers=self.headers, json=data)
+
+
 
 
