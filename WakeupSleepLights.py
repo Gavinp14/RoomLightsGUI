@@ -28,9 +28,29 @@ def turnOff():
     lampLight.turnOff()
     fanLight.turnOff()
 
-#remmeber to add 0 in front of single digit for morning times
-schedule.every().day.at("18:11").do(turnOnNightLights)
+# Monday Schedule
+schedule.every().monday.at("07:30").do(turnOnMorningLights)
+schedule.every().monday.at("21:00").do(turnOnNightLights)
+schedule.every().monday.at("22:00").do(turnOff)
+
+# Tuesday Schedule
+schedule.every().tuesday.at("09:30").do(turnOnMorningLights)
+schedule.every().tuesday.at("21:00").do(turnOnNightLights)
+schedule.every().tuesday.at("22:00").do(turnOff)
+
+# Wednesday Schedule
+schedule.every().wednesday.at("07:30").do(turnOnMorningLights)
+schedule.every().wednesday.at("21:00").do(turnOnNightLights)
+schedule.every().wednesday.at("22:00").do(turnOff)
+
+# Thursday Schedule
+schedule.every().thursday.at("09:30").do(turnOnMorningLights)
+schedule.every().thursday.at("21:00").do(turnOnNightLights)
+schedule.every().thursday.at("22:00").do(turnOff)
+
+schedule.every().day.at("19:46").do(turnOff)
 
 while True:
+    print(schedule.get_jobs())
     schedule.run_pending()
     time.sleep(1)
