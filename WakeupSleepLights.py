@@ -55,9 +55,8 @@ schedule.every().thursday.at("09:30").do(turnOnMorningLights)
 schedule.every().thursday.at("21:00").do(turnOnNightLights)
 schedule.every().thursday.at("22:00").do(turnOff)
 
-schedule.every().day.at("19:46").do(turnOff)
-
+#loop to check processes and see if they match current time
 while True:
     print(schedule.get_jobs())
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(10)
